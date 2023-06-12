@@ -21,4 +21,8 @@ export class UsersService {
   async update(id: string, user: User): Promise<User> {
     return this.userModel.findByIdAndUpdate(id, user, { new: true });
   }
+
+  async findByUsername(username: string): Promise<User | null> {
+    return this.userModel.findOne({ username }).exec();
+  }
 }
