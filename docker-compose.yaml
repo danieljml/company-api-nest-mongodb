@@ -19,6 +19,8 @@ services:
       - mongodb
     networks:
       - network
+    volumes:
+      - './uploads:/app/uploads'
 networks:
   network:
     driver: bridge

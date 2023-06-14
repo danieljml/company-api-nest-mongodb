@@ -6,6 +6,7 @@ import { PassportModule } from '@nestjs/passport';
 import { usersProviders } from './users.providers';
 import { JwtModule } from '@nestjs/jwt';
 import { SECRET_KEY } from '../auth/constants';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [

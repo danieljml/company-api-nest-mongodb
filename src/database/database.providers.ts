@@ -1,8 +1,6 @@
 import * as mongoose from 'mongoose';
 
-const uri =
-  'mongodb://admin:secret@mongodb:27017/';
-
+const uri = 'mongodb://admin:secret@mongodb:27017/';
 
 export const databaseProviders = [
   {
