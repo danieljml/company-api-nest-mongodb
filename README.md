@@ -1,73 +1,55 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+This project has been created as the solution for a code challenge, in this file you will be able to find a general guidance on how the project should be executed and all the endpoints that are currently being exposed
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Docker and Docker Compose Installation Guide
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Installing Docker
 
-## Description
+To install Docker, follow these steps:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+1. **Update system packages**: Before installing Docker, update your system's package manager to ensure you have the latest packages. Refer to your specific operating system's package manager documentation for instructions.
 
-## Installation
+2. **Install Docker**: Visit the official Docker documentation for detailed installation instructions specific to your operating system:
+
+   - Docker installation documentation: [https://docs.docker.com/install](https://docs.docker.com/install)
+
+   The documentation provides step-by-step instructions for various operating systems including Linux, macOS, and Windows.
+
+3. **Verify Docker installation**: After installing Docker, open a terminal or command prompt and run the following command to verify that Docker is installed correctly:
 
 ```bash
-$ npm install
+docker --version
+```
+
+## Installing Docker Compose
+
+Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to describe your application's services, networks, and volumes in a single YAML file and easily manage the lifecycle of your containers.
+
+To install Docker Compose, follow these steps:
+
+## Prerequisites
+
+Before installing Docker Compose, make sure you have Docker installed on your system. Docker Compose is typically distributed alongside Docker and requires Docker to be already installed.
+
+If you haven't installed Docker yet, refer to the official Docker installation documentation for instructions specific to your operating system: [https://docs.docker.com/install](https://docs.docker.com/install)
+
+## Installation Steps
+
+To install Docker Compose, perform the following steps:
+
+1. **Download the Docker Compose binary**: Docker Compose is not bundled with Docker by default, so you need to download it separately. The recommended approach is to retrieve the binary from the official GitHub repository.
+
+   - Visit the Docker Compose GitHub repository release page: [https://github.com/docker/compose/releases](https://github.com/docker/compose/releases)
+
+   - Find the latest release of Docker Compose and locate the binary appropriate for your operating system. Typically, you will download a file named `docker-compose` or `docker-compose.exe`.
+
+2. **Set executable permissions (Linux/macOS)**: If you're using Linux or macOS, make the downloaded binary executable. Open a terminal, navigate to the directory where the binary is located, and run the following command:
+
+```bash
+chmod +x docker-compose
 ```
 
 ## Running the app
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+$ docker-compose up
 ```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
