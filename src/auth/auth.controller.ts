@@ -11,20 +11,20 @@ import { Public } from './auth.custom-decorators';
 import { User } from '../users/users.model';
 import { AuthenticationService } from './auth.service';
 
-@Controller()
+@Controller('auth')
 export class AuthenticationController {
   constructor(private readonly authenticationService: AuthenticationService) {}
 
   @Public()
   @UseGuards(LocalAuthGuard)
-  @Post('auth/login')
+  @Post('login')
   @Bind(Request())
   async login(req) {
     return this.authenticationService.login(req.user);
   }
 
   @Public()
-  @Post('auth/signup')
+  @Post('signup')
   async signUp(@Body() user: User): Promise<User> {
     return this.authenticationService.signUp(user);
   }

@@ -48,8 +48,164 @@ To install Docker Compose, perform the following steps:
 chmod +x docker-compose
 ```
 
-## Running the app
+# Running the app
 
 ```bash
 $ docker-compose up
 ```
+
+# Endpoints and general documentation
+
+## Login
+
+Example Request:
+
+```
+curl -X POST
+-H "Content-Type: application/json"
+-d '{"username": "Daniel", "password": "password"}' http://localhost:3000/auth/login
+```
+
+Response:
+
+```
+{
+  "access_token": "Bearer token"
+}
+```
+
+## Sign Up
+
+Example Request:
+
+```
+curl -X POST
+-H "Content-Type: application/json"
+-d '{
+  "username": "Daniel_",
+  "firstName": "Daniel",
+  "lastName": "Garrido",
+  "address": "123 Main St",
+  "password": "password123"
+}' http://localhost:3000/auth/signup
+```
+
+Response:
+
+```
+{
+  "username": "Daniel_",
+  "firstName": "Daniel",
+  "lastName": "Garrido",
+  "address": "123 Main St",
+  "password": "$2b$10$36j4M3tOsNozs2FOyYCKl.TF5kmRSUlfVoJJ5MpTCK6VFxbw00bhC",
+  "_id": "64894f7a3d53fa8c72966ca0",
+  "__v": 0
+}
+```
+
+## Create User
+
+Example Request:
+
+```
+curl -X POST
+-H "Content-Type: application/json"
+-H "Authorization: Bearer token"
+-d '{
+  "username": "jane_smith",
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "address": "456 Elm St",
+  "password": "password456"
+}' http://localhost:3000/users
+```
+
+Response:
+
+```
+{
+  "username": "jane_smith",
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "address": "456 Elm St",
+  "password": "password456",
+  "_id": "648950343d53fa8c72966ca7",
+  "__v": 0
+}
+```
+
+## Get Users
+
+Example Request:
+
+```
+curl -X GET
+-H "Authorization: Bearer token"
+http://localhost:3000/users
+```
+
+Response:
+
+```
+[
+  {
+    "_id": "64894f7a3d53fa8c72966ca0",
+    "username": "Daniel_",
+    "firstName": "Daniel",
+    "lastName": "Garrido",
+    "address": "123 Main St",
+    "password": "$2b$10$36j4M3tOsNozs2FOyYCKl.TF5kmRSUlfVoJJ5MpTCK6VFxbw00bhC",
+    "__v": 0
+  },
+  {
+    "_id": "648950343d53fa8c72966ca7",
+    "username": "jane_smith",
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "address": "456 Elm St",
+    "password": "password456",
+    "__v": 0
+  }
+]
+```
+
+## Update Users
+
+Example Request:
+
+```
+curl -X PUT
+-H "Content-Type: application/json"
+-H "Authorization: Bearer token"
+-d '{
+  "username": "Daniel_",
+  "firstName": "Testing",
+  "lastName": "Testing More",
+  "address": "456 Elm St"
+}' http://localhost:3000/users/64894f7a3d53fa8c72966ca0
+```
+
+Response:
+
+```
+{
+  "_id": "64894f7a3d53fa8c72966ca0",
+  "username": "Daniel_",
+  "firstName": "Testing",
+  "lastName": "Testing More",
+  "address": "456 Elm St",
+  "password": "$2b$10$36j4M3tOsNozs2FOyYCKl.TF5kmRSUlfVoJJ5MpTCK6VFxbw00bhC",
+  "__v": 0
+}
+```
+
+## Delete Users
+
+Note: This endpoint was created for testing purposes to clean the database
+
+```
+curl -X DELETE http://localhost:3000/users
+```
+
+The response of this endpoint is the number of records that were deleted from the user table.
