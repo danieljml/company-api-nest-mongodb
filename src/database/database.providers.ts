@@ -1,7 +1,8 @@
 import * as mongoose from 'mongoose';
 
 const uri =
-  'mongodb+srv://database:database@testingcluster.wxdykeb.mongodb.net/?retryWrites=true&w=majority';
+  'mongodb://admin:secret@mongodb:27017/';
+
 
 export const databaseProviders = [
   {

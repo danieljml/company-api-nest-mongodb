@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+  mongodb:
+    image: mongodb/mongodb-community-server:6.0-ubi8
+    environment:
+      MONGODB_INITDB_ROOT_USERNAME: admin
+      MONGODB_INITDB_ROOT_PASSWORD: secret
+    ports:
+      - 27017:27017
+    networks:
+      - network
+  user-management-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongodb
+    networks:
+      - network
+networks:
+  network:
+    driver: bridge
