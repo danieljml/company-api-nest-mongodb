@@ -3,8 +3,13 @@ import { Document } from 'mongoose';
 
 @Schema()
 export class User {
+  _id: string;
+
   @Prop()
-  name: string;
+  username: string;
+
+  @Prop()
+  firstName: string;
 
   @Prop()
   lastName: string;
